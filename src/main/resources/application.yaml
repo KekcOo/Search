@@ -1,4 +1,14 @@
 # example values
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: root
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 
 indexing-settings:
   sites:
