@@ -1,4 +1,4 @@
-package searchengine.Entity;
+package searchengine.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,21 +17,21 @@ import java.util.List;
 public class Page {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "site_id", nullable = false )
-    private Site siteId;
+    @JoinColumn(name = "site_id", nullable = false)
+    private Site site;
 
-    @Column(name = "path",nullable = false,columnDefinition = "TEXT")
+    @Column(name = "path", nullable = false, columnDefinition = "TEXT")
     private String path;
 
-    @Column(name = "code",nullable = false)
+    @Column(name = "code", nullable = false)
     private Integer code;
 
-    @Column(name = "content",nullable = false,columnDefinition = "MEDIUMTEXT")
+    @Column(name = "content", nullable = false, columnDefinition = "MEDIUMTEXT")
     private String content;
 
     @OneToMany(mappedBy = "page", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<searchengine.Entity.Index> indexes;
+    private List<searchengine.entity.Index> indexes;
 }
