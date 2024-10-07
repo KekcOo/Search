@@ -17,7 +17,7 @@ import java.util.List;
 public class Page {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "site_id", nullable = false)
@@ -29,7 +29,7 @@ public class Page {
     @Column(name = "code", nullable = false)
     private Integer code;
 
-    @Column(name = "content", nullable = false, columnDefinition = "MEDIUMTEXT")
+    @Column(name = "content", nullable = false, columnDefinition = "TEXT")
     private String content;
 
     @OneToMany(mappedBy = "page", cascade = CascadeType.ALL, orphanRemoval = true)
